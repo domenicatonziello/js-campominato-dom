@@ -22,17 +22,6 @@ Dobbiamo poi stampare in pagina il punteggio raggiunto ed il messaggio adeguato 
 */
 
 
-
-
-
-
-
-
-
-
-
-
-
 // *FUNZIONI -------------------------------------------------------------
 // creo funzione per generare celle
 function createCell(number){
@@ -65,6 +54,10 @@ button.addEventListener('click', function(){
         cols = 7;
     }
     const totalCells = rows * cols; 
+
+
+    let score = 0;
+
     // rimuovo nodo  
     grid.innerHTML = '';
 
@@ -74,23 +67,27 @@ button.addEventListener('click', function(){
         const cell = createCell(i);
            
         if(userChoise === 'hard'){
-           cell.classList.add('hard');
+           grid.classList.add('hard');
         } else if (userChoise === 'medium'){
-            cell.classList.add('medium');
+            grid.classList.add('medium');
         }else{
-           cell.classList.add('easy')
+           grid.classList.add('easy')
         }
         
+       
+        
         // event listener quando l'utente clicca sulle celle 
-        let score = 0;
-
         cell.addEventListener('click', function(){ 
-            cell.classList.add('clicked');
-            console.log('cella n:' + i);
-            
-            // incremento punteggio
-            score += 1;
-            console.log('Punteggio:' + score)
+            if(cell.className === 'cell'){
+                
+                console.log('cella n:' + i);
+                cell.classList.add('clicked');
+                
+                // incremento punteggio
+                score += 1;    
+                console.log('Punteggio:' + score)
+            }
+
         });
         
            
