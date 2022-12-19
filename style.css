@@ -91,6 +91,9 @@ main h2{
 .cell.clicked{
     background-color: dodgerblue;
 }
+.cell.bomb{
+    background-color: red;
+}
 /* footer */
 .visited {
     color: blueviolet;

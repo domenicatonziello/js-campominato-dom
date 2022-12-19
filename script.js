@@ -94,16 +94,22 @@ button.addEventListener('click', function(){
         
         // event listener quando l'utente clicca sulle celle 
         cell.addEventListener('click', function(){ 
-            
             if(cell.className === 'cell'){
                 
                 console.log('cella n:' + i);
-                cell.classList.add('clicked');
+                if (bombs.includes(i)){
+                    cell.classList.add('bomb');
+                    console.log('Hai perso');
+
+                } else{
+                    cell.classList.add('clicked');
+                    // incremento punteggio
+                    score += 1;    
+                }
                 
-                // incremento punteggio
-                score += 1;    
                 console.log('Punteggio:' + score)
             }
+            
 
         });
         
