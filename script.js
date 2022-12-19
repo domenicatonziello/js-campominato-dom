@@ -46,6 +46,8 @@ const container = document.querySelector('.container');
 const h2 = document.querySelector('h2');
 const select = document.getElementById('difficulty');
 const grid = document.querySelector('.grid');
+const result = document.querySelector ('.message');
+const totalScore = document.querySelector('.score');
 // * EVENTI --------------------------------------------------------------
 
 // aggiungo event listener al button
@@ -67,7 +69,8 @@ button.addEventListener('click', function(){
     let score = 0;
 
     const bombs = [];
-
+    let message;
+  
     // rimuovo nodo  
     grid.innerHTML = '';
 
@@ -90,30 +93,34 @@ button.addEventListener('click', function(){
            grid.classList.add('easy')
         }
         
-       
         
         // event listener quando l'utente clicca sulle celle 
         cell.addEventListener('click', function(){ 
             if(cell.className === 'cell'){
-                
-                console.log('cella n:' + i);
-                if (bombs.includes(i)){
-                    cell.classList.add('bomb');
-                    console.log('Hai perso');
-
+               console.log('cella n:' + i);
+            
+               if (bombs.includes(i)){
+                  cell.classList.add('bomb');
+                  console.log('Partita terminata');
+                  result.innerText = 'Hai cliccato una bomba!'
+                  totalScore.innerText = `Score: ${score} punti`; 
                 } else{
                     cell.classList.add('clicked');
+                    
                     // incremento punteggio
-                    score += 1;    
+                    score += 1;
+                    const totalScore = totalCells - 16;
+                    console.log('punteggio totale' + totalScore);
+                    // controllo se il punteggio è uguale a quello massimo
+                    if (totalScore === score){
+                      result.innerText = 'Congratulazioni, hai raggiunto il punteggio massimo!'
+                    }  
                 }
                 
                 console.log('Punteggio:' + score)
-            }
-            
-
+            }    
         });
-        
-           
         grid.appendChild(cell);
+        
     }
 });
