@@ -45,7 +45,7 @@ const button = document.querySelector('.btn');
 const container = document.querySelector('.container');
 const h2 = document.querySelector('h2');
 const select = document.getElementById('difficulty');
-const grid = document.querySelector('.grid');
+const grid = document.getElementById('grid');
 const result = document.querySelector ('.message');
 const totalScore = document.querySelector('.score');
 // * EVENTI --------------------------------------------------------------
@@ -54,6 +54,10 @@ const totalScore = document.querySelector('.score');
 button.addEventListener('click', function(){
     // prendo userchoise
     const userChoise = select.value;
+    console.log(userChoise);
+
+    grid.className = userChoise;
+
     let rows = 10;
     let cols = 10;
     if(userChoise === 'medium'){
@@ -69,7 +73,6 @@ button.addEventListener('click', function(){
     let score = 0;
 
     const bombs = [];
-    let message;
   
     // rimuovo nodo  
     grid.innerHTML = '';
@@ -82,18 +85,10 @@ button.addEventListener('click', function(){
     console.log(bombs);
 
     // genero griglia al click aggiungendo le celle
+    
     for(let i = 1 ; i <= totalCells; i++){
         const cell = createCell(i);
            
-        if(userChoise === 'hard'){
-           grid.classList.add('hard');
-        } else if (userChoise === 'medium'){
-            grid.classList.add('medium');
-        }else{
-           grid.classList.add('easy')
-        }
-        
-        
         // event listener quando l'utente clicca sulle celle 
         cell.addEventListener('click', function(){ 
             if(cell.className === 'cell'){
@@ -103,7 +98,8 @@ button.addEventListener('click', function(){
                   cell.classList.add('bomb');
                   console.log('Partita terminata');
                   result.innerText = 'Hai cliccato una bomba!'
-                  totalScore.innerText = `Score: ${score} punti`; 
+                  totalScore.innerText = `Score: ${score} punti`;
+                  
                 } else{
                     cell.classList.add('clicked');
                     

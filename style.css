@@ -57,7 +57,7 @@ main h2{
     text-align: center;
     font-size: 50px;
 }
-.grid{
+#grid{
     width: 600px;
     height: 600px;
     margin: 0 auto;
@@ -67,7 +67,7 @@ main h2{
     justify-content: center;
     align-items: center;
 }
-.grid .cell{
+#grid .cell{
     border: 1px solid black;
     display: flex;
     justify-content: center;
@@ -75,15 +75,15 @@ main h2{
 }
 
 
-.grid.easy .cell{
+#grid.easy .cell{
     width: calc(100% / 10);
     height: calc(100% / 10);
 }
-.grid.medium .cell{
+#grid.medium .cell{
     width: calc(100% / 9);
     height: calc(100% / 9);
 }
-.grid.hard .cell{
+#grid.hard .cell{
     width: calc(100% / 7);
     height: calc(100% / 7);
 }
