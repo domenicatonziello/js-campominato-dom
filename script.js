@@ -30,6 +30,14 @@ function createCell(number){
     cell.append(number);
     return cell;
 }
+// creo funzione per generare un numero random
+function getRandomNumber (min, max, blacklist){
+    let randomNumber;
+    do{
+        randomNumber = Math.floor(Math.random()*(max + 1 - min)) + min;
+    } while(blacklist.includes(randomNumber));
+    return randomNumber;
+}
 
 // * FASE INIZIALE -------------------------------------------------------
 // Prendo elementi dal DOM
@@ -58,9 +66,17 @@ button.addEventListener('click', function(){
 
     let score = 0;
 
+    const bombs = [];
+
     // rimuovo nodo  
     grid.innerHTML = '';
 
+    // genero 16 numeri casuali e li aggiungo nell'array delle bombe
+    for (let i = 1; i <= 16; i++){
+        const nRandom = getRandomNumber(1, totalCells, bombs);
+        bombs.push(nRandom);
+    }
+    console.log(bombs);
 
     // genero griglia al click aggiungendo le celle
     for(let i = 1 ; i <= totalCells; i++){
@@ -78,6 +94,7 @@ button.addEventListener('click', function(){
         
         // event listener quando l'utente clicca sulle celle 
         cell.addEventListener('click', function(){ 
+            
             if(cell.className === 'cell'){
                 
                 console.log('cella n:' + i);
