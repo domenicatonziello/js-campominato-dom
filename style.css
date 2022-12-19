@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/** Generic */
+body{
+    font-family: sans-serif;
+}
+header{
+    height: 100px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+main{
+    min-height: 700px ;
+    padding: 50px;
+    background-color: aquamarine;
+}
+footer{
+    height: 50px;
+    line-height: 50px;
+    vertical-align: middle;
+    margin-left: 20px;
+}
+
+/** Utility */
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.bg-white{
+    background-color: white;
+}
+
+
+/* header */
+.nav-left{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav-left img{
+    margin-right: 10px ;
+}
+.btn{
+    cursor: pointer;
+    padding: 5px 30px;
+    border-radius: 5px;
+    border: 1px solid grey;
+}
+
+/* MAIN */
+main h2{
+    text-align: center;
+    font-size: 50px;
+}
+.grid{
+    width: 600px;
+    height: 600px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+.grid .cell{
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.cell.easy{
+    width: calc(100% / 10);
+    height: calc(100% / 10);
+}
+.cell.medium {
+    width: calc(100% / 9);
+    height: calc(100% / 9);
+}
+.cell.hard{
+    width: calc(100% / 7);
+    height: calc(100% / 7);
+}
+
+.cell.clicked{
+    background-color: dodgerblue;
+}
+/* footer */
+.visited {
+    color: blueviolet;
+    text-decoration: underline;
+}
